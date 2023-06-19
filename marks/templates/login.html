@@ -1,0 +1,36 @@
+<html>
+<head>
+    <style>
+        .container py-5
+        {
+           border: 5px solid;
+             margin: auto;
+             width: 50%;
+            padding: 10px;
+            border-radius: 0.5px;
+        }
+
+        .btn btn-primary
+        {
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<div class="container py-5">
+    <h3 text-align="centre"><u>Login</u></h3><br>
+    <form method="POST">
+        {% csrf_token %}<br>
+        {{ login_form|crispy }}<br>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+</div>
+</body>
+{% endblock %}
+</html>

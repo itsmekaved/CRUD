@@ -1,0 +1,46 @@
+<html>
+<head>
+<style>
+   table, th, td {
+  border: 1px solid black;
+     text-align: center;
+      margin-left: auto;
+  margin-right: auto;
+
+
+}
+   th, td {
+  padding: 15px;
+}
+</style>
+</head>
+<body background="pink">
+<h1 text-align="centre"><u>Marks</u></h1><br>
+
+    {% for mark in markss %}
+        {% if mark.std_rollno == user.username %}<br><br>
+    <table class="table">
+  <tr>
+    <th>roll number</th>
+    <th>name</th>
+    <th>branch</th>
+      <th>course</th>
+      <th>study hours</th>
+      <th>marks percentage</th>
+  </tr>
+  <tr>
+    <td> {{ mark.std_rollno }}</td>
+    <td> {{ mark.std_name }}</td>
+    <td>{{ mark.std_branch }}</td>
+      <td>{{ mark.std_course }}</td>
+      <td>{{ mark.std_studyhours }}</td>
+      <td>{{ mark.std_marks }}%</td>
+
+  </tr>
+    </table><br><br>
+
+        {% endif %}
+    {% endfor %}
+
+</body>
+</html>
