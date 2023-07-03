@@ -9,7 +9,7 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=63, widget=forms.PasswordInput)
 
 
-class mytable2(forms.Form):
+class mytable3(forms.Form):
     std_rollno = forms.CharField(max_length=22)  # Field name made lowercase.
     std_name = forms.CharField(max_length=22)  # Field name made lowercase.
     std_branch = forms.CharField(max_length=14)  # Field name made lowercase.
