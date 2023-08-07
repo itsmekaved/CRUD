@@ -1,6 +1,6 @@
 import slide01 from '../static/student11.jpg'
 import slide02 from '../static/student22.jpg'
-import slide03 from '../static/student3.jpg'
+import slide03 from '../static/student2.jpg'
 
 import Carousel from 'react-bootstrap/Carousel';
 

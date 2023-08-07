@@ -19,3 +19,7 @@ class mytable3(models.Model):
 
 
 
+
+
+
+
