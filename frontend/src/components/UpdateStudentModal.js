@@ -1,7 +1,6 @@
 import React from 'react';
 import {Modal, Col, Row, Form, Button} from 'react-bootstrap';
-import {FormControl, FormGroup, FormLabel} from 'react-bootstrap';
-import { updateStudent } from '../services/studentservice';
+import { updateStudent2 } from '../services/studentservice';
 
 
 
@@ -9,7 +8,7 @@ const UpdateStudentModal = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        updateStudent(props.student.id, e.target)
+        updateStudent2(props.student.customer_id, e.target)
         .then((result)=>{
             alert(result);
             props.setUpdated(true);
@@ -37,29 +36,21 @@ const UpdateStudentModal = (props) => {
                     <Row>
                         <Col sm={6}>
                             <Form onSubmit={handleSubmit}>
-                                <Form.Group controlId="std_rollno">
-                                    <Form.Label>Roll Number</Form.Label>
-                                    <Form.Control type="text" name="std_rollno" required placeholder="" />
+                                <Form.Group controlId="customer_id">
+                                    <Form.Label>ID</Form.Label>
+                                    <Form.Control type="text" name="customer_id" required placeholder="Hello" />
                             </Form.Group>
-                            <Form.Group controlId="std_name">
+                            <Form.Group controlId="customer_pan">
+                                    <Form.Label>PAN</Form.Label>
+                                    <Form.Control type="text" name="customer_pan" required placeholder="" />
+                            </Form.Group>
+                            <Form.Group controlId="customer_name">
                                     <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" name="std_name" required placeholder="" />
+                                    <Form.Control type="text" name="customer_name" required placeholder="" />
                             </Form.Group>
-                            <Form.Group controlId="std_branch">
-                                    <Form.Label>Branch</Form.Label>
-                                    <Form.Control type="text" name="std_branch" required placeholder="" />
-                            </Form.Group>
-                            <Form.Group controlId="std_course">
-                                    <Form.Label>Course</Form.Label>
-                                    <Form.Control type="text" name="std_course" required placeholder="" />
-                            </Form.Group>
-                            <Form.Group controlId="std_studyhours">
-                                    <Form.Label>Study_Hours</Form.Label>
-                                    <Form.Control type="text" name="std_studyhours" required placeholder="" />
-                            </Form.Group>
-                            <Form.Group controlId="std_marks">
-                                    <Form.Label>Marks</Form.Label>
-                                    <Form.Control type="text" name="std_marks" required placeholder="" />
+                            <Form.Group controlId="customer_phone">
+                                    <Form.Label>Phone</Form.Label>
+                                    <Form.Control type="text" name="customer_phone" required placeholder="" />
                             </Form.Group>
                             <Form.Group>
                                 <p></p>

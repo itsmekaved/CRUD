@@ -1,6 +1,5 @@
 import React from 'react';
 import {Modal, Col, Row, Form, Button} from 'react-bootstrap';
-import {FormControl, FormGroup, FormLabel} from 'react-bootstrap';
 import { addStudent } from '../services/studentservice';
 
 
@@ -36,29 +35,25 @@ const AddStudentModal = (props) => {
                     <Row>
                         <Col sm={6}>
                             <Form onSubmit={handleSubmit}>
-                                <Form.Group controlId="std_rollno">
-                                    <Form.Label>Roll Number</Form.Label>
-                                    <Form.Control type="text" name="std_rollno" required placeholder="" />
+                                <Form.Group controlId="loan_id">
+                                    <Form.Label>Loan ID</Form.Label>
+                                    <Form.Control type="text" name="loan_id" required placeholder="" />
                             </Form.Group>
-                            <Form.Group controlId="std_name">
-                                    <Form.Label>Name</Form.Label>
-                                    <Form.Control type="text" name="std_name" required placeholder="" />
+                            <Form.Group controlId="loan_amount">
+                                    <Form.Label>Loan Amount</Form.Label>
+                                    <Form.Control type="text" name="loan_amount" required placeholder="" />
                             </Form.Group>
-                            <Form.Group controlId="std_branch">
-                                    <Form.Label>Branch</Form.Label>
-                                    <Form.Control type="text" name="std_branch" required placeholder="" />
+                            <Form.Group controlId="employee_table">
+                                    <Form.Label>Customer PAN</Form.Label>
+                                    <Form.Control type="text" name="employee_table" required placeholder="" />
                             </Form.Group>
-                            <Form.Group controlId="std_course">
-                                    <Form.Label>Course</Form.Label>
-                                    <Form.Control type="text" name="std_course" required placeholder="" />
+                            <Form.Group controlId="customer_name">
+                                    <Form.Label>Customer Name</Form.Label>
+                                    <Form.Control type="text" name="customer_name" required placeholder="" />
                             </Form.Group>
-                            <Form.Group controlId="std_studyhours">
-                                    <Form.Label>Study_Hours</Form.Label>
-                                    <Form.Control type="text" name="std_studyhours" required placeholder="" />
-                            </Form.Group>
-                            <Form.Group controlId="std_marks">
-                                    <Form.Label>Marks</Form.Label>
-                                    <Form.Control type="text" name="std_marks" required placeholder="" />
+                            <Form.Group controlId="relationship_manager">
+                                    <Form.Label>RM</Form.Label>
+                                    <Form.Control type="text" name="relationship_manager" required placeholder="" />
                             </Form.Group>
                             <Form.Group>
                                 <p></p>

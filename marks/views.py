@@ -1,14 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http.response import Http404, JsonResponse
-from django.contrib.auth import login, authenticate
-from . import forms
-from .models import mytable3
-from .serializers import TableSerializer
+from .models import employeetable1, loantable1
+from .serializers import employeetable1Serializer, loantable1Serializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
 
-def login_page(request):
+'''def login_page(request):
     form = forms.LoginForm()
     message = ''
     if request.method == 'POST':
@@ -123,6 +121,102 @@ class StudentView(APIView):
     def delete(self, request, pk):
         student_to_delete = mytable3.objects.get(id=pk)
         student_to_delete.delete()
-        return JsonResponse("Student Deleted Successfully", safe=False)
+        return JsonResponse("Student Deleted Successfully", safe=False)'''
+
+
+class EmployeeView(APIView):
+
+    def post(self, request):
+        data = request.data
+        serializer = employeetable1Serializer(data=data)
+
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse("Data Added Successfully", safe=False)
+        return JsonResponse("Failed to Add Data", safe=False)
+
+    def get_data(self, pk):
+        try:
+            student = employeetable1.objects.get(customer_id=pk)
+            return student
+        except employeetable1.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk=None):
+        if pk:
+            data = self.get_data(pk)
+            serializer = employeetable1Serializer(data)
+        else:
+            data = employeetable1.objects.all()
+            serializer = employeetable1Serializer(data, many=True)
+        return Response(serializer.data)
+
+
+    def put(self, request, pk=None):
+        student_to_update = employeetable1.objects.get(customer_id=pk)
+        serializer = employeetable1Serializer(instance=student_to_update, data=request.data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            return JsonResponse("Data updated successfully", safe=False)
+        return JsonResponse("Failed to update Data")
+
+
+
+    def delete(self, request, pk):
+        data_to_delete = employeetable1.objects.get(customer_id=pk)
+        data_to_delete.delete()
+        return JsonResponse("Data Deleted Successfully", safe=False)
+
+class LoanView(APIView):
+
+        def post(self, request):
+            data = request.data
+            serializer = loantable1Serializer(data=data)
+
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse("Data Added Successfully", safe=False)
+            return JsonResponse("Failed to Add Data", safe=False)
+
+        def get_loan_data(self, pk):
+            try:
+                student = loantable1.objects.get(loan_id=pk)
+                return student
+            except loantable1.DoesNotExist:
+                raise Http404
+
+        def get(self, request, pk=None):
+            if pk:
+                data = self.get_loan_data(pk)
+                serializer = loantable1Serializer(data)
+            else:
+                data = loantable1.objects.all()
+                serializer = loantable1Serializer(data, many=True)
+            return Response(serializer.data)
+
+        def create(self, validated_data):
+            loan_data = validated_data.pop('employee_table')
+            loan = loantable1.objects.create(**validated_data)
+            for loann_data in loan_data:
+                employeetable1.objects.create(loan=loan, **loann_data)
+            return loan
+
+        def put(self, request, pk=None):
+            student_to_update = loantable1.objects.get(loan_id=pk)
+            serializer = loantable1Serializer(instance=student_to_update, data=request.data, partial=True)
+
+            if serializer.is_valid():
+                serializer.save()
+                return JsonResponse("Data updated successfully", safe=False)
+            return JsonResponse("Failed to update Data")
+
+        def delete(self, request, pk):
+            data_to_delete = loantable1.objects.get(loan_id=pk)
+            data_to_delete.delete()
+            return JsonResponse("Data Deleted Successfully", safe=False)
+
+
+
 
 

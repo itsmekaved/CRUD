@@ -1,25 +1,26 @@
 from django.db import models
 
 
-class mytable3(models.Model):
-    id = models.IntegerField(primary_key=True)
-    std_rollno = models.CharField(db_column='Std_RollNo', max_length=6)  # Field name made lowercase.
-    std_name = models.CharField(db_column='Std_Name', max_length=22)  # Field name made lowercase.
-    std_branch = models.CharField(db_column='Std_Branch', max_length=14, blank=True, null=True)  # Field name made lowercase.
-    std_course = models.CharField(db_column='Std_Course', max_length=15)  # Field name made lowercase.
-    std_studyhours = models.DecimalField(db_column='Std_StudyHours', max_digits=4, decimal_places=2, blank=True, null=True)  # Field name made lowercase.
-    std_marks = models.DecimalField(db_column='Std_Marks', max_digits=5, decimal_places=2)  # Field name made lowercase.
+class employeetable1(models.Model):
+    customer_id = models.IntegerField(db_column='customer_id', primary_key=True)
+    customer_pan = models.CharField(db_column='customer_pan', max_length=10)
+    customer_name = models.CharField(db_column='customer_name', max_length=22)
+    customer_phone = models.CharField(db_column='customer_phone', max_length=12)
 
     class Meta:
-        db_table = 'mytable3'
-
-        def __str__(self):
-            return self.mytable
+        db_table = 'subbackend_employeetable'
 
 
 
+class loantable1(models.Model):
+    loan_id = models.IntegerField(db_column='loan_id', primary_key=True)
+    loan_amount = models.IntegerField(db_column='loan_amount')
+    employee_table = models.ForeignKey(employeetable1, on_delete=models.CASCADE)
+    customer_name = models.ForeignKey(employeetable1, on_delete=models.CASCADE, related_name='name')
+    relationship_manager = models.CharField(db_column='relationship_manager', max_length=100)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    update_date = models.DateTimeField(auto_now=True)
 
-
-
-
+    class Meta:
+        db_table = 'subbackend_loantable'
 

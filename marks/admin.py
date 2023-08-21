@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import mytable3
+from .models import employeetable1, loantable1
 
 
-class MytableAdmin(admin.ModelAdmin):
-    list_display = ('std_rollno', 'std_name', 'std_branch', 'std_course', 'std_studyhours', 'std_marks')
+models_list = [employeetable1]
+admin.site.register(models_list)
 
+models_list = [loantable1]
+admin.site.register(models_list)
 
-admin.site.register(mytable3, MytableAdmin)
