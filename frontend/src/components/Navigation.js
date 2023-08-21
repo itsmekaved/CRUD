@@ -8,14 +8,14 @@ import {
 } from 'cdbreact';
 import {NavLink} from 'react-router-dom';
 import {Navbar} from 'react-bootstrap';
-import logo from '../static/batman-4-logo.png';
+import logo from '../static/Volt2.png';
 import "../App.css";
 
 
 const Navigation = () => {
   return (
     <div>
-    <Navbar bg="warning" variant="light" expand="lg" id="my-nav" >
+    <Navbar bg="primary" variant="dark" expand="lg" id="my-nav" >
         <Navbar.Brand className="app-logo" href="/">
             <img
               src={logo}
@@ -24,11 +24,11 @@ const Navigation = () => {
               className="d-inline-block align-center"
               alt="React Bootstrap logo"
             />{' '}
-            Student Management Site
+            Loan Management
         </Navbar.Brand>
     </Navbar>
     <div className='sidebar'>
-    <CDBSidebar textColor="#ffffff" backgroundColor="#000000">
+    <CDBSidebar textColor="#ffffff" backgroundColor="#5A5A5A">
         <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
           Navigation
         </CDBSidebarHeader>

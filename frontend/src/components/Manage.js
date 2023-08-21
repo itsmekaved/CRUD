@@ -1,10 +1,9 @@
 import React,{ useEffect, useState } from 'react';
 import {InputGroup, Table, Form} from 'react-bootstrap';
-import {Button,ButtonToolbar } from 'react-bootstrap';
+import {Button } from 'react-bootstrap';
 import { FaEdit } from 'react-icons/fa';
 import { RiDeleteBin5Line } from 'react-icons/ri';
 import { getStudents, deleteStudent } from '../services/studentservice';
-import AddStudentModal from "./AddStudentModal";
 import UpdateStudentModal2 from "./UpdateStudentModal2";
 import "../App.css";
 
@@ -120,13 +119,6 @@ return(
             </tr>))}
           </tbody>
         </Table>
-        <ButtonToolbar>
-            <Button variant="primary" onClick={handleAdd}>
-            Add Student
-            </Button>
-            <AddStudentModal show={addModalShow} setUpdated={setIsUpdated}
-            onHide={AddModelClose}></AddStudentModal>
-        </ButtonToolbar>
     </div>
     </div>
 );
