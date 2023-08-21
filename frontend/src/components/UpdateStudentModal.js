@@ -14,7 +14,7 @@ const UpdateStudentModal = (props) => {
             props.setUpdated(true);
         },
         (error)=>{
-            alert("Failed to Update Student");
+            alert("Failed to Update");
         })
     };
 
@@ -29,7 +29,7 @@ const UpdateStudentModal = (props) => {
 
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Update Student Information
+                        Update Information
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
@@ -38,7 +38,7 @@ const UpdateStudentModal = (props) => {
                             <Form onSubmit={handleSubmit}>
                                 <Form.Group controlId="customer_id">
                                     <Form.Label>ID</Form.Label>
-                                    <Form.Control type="text" name="customer_id" required placeholder="Hello" />
+                                    <Form.Control type="text" name="customer_id" required placeholder="" />
                             </Form.Group>
                             <Form.Group controlId="customer_pan">
                                     <Form.Label>PAN</Form.Label>

@@ -28,7 +28,7 @@ const AddStudentModal2 = (props) => {
 
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Fill In Student Information
+                        Fill In Customer Information
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

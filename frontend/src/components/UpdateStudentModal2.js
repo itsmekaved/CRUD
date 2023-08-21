@@ -14,7 +14,7 @@ const UpdateStudentModal2 = (props) => {
             props.setUpdated(true);
         },
         (error)=>{
-            alert("Failed to Update Student");
+            alert("Failed to Update ");
         })
     };
 
@@ -29,7 +29,7 @@ const UpdateStudentModal2 = (props) => {
 
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Update Student Information
+                        Update Information
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
