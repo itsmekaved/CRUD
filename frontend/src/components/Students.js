@@ -116,7 +116,7 @@ return(
         </Table>
         <ButtonToolbar>
             <Button variant="primary" onClick={handleAdd}>
-            Add Student
+            Add Customer
             </Button>
             <AddStudentModal2 show={addModalShow} setUpdated={setIsUpdated}
             onHide={AddModelClose}></AddStudentModal2>
